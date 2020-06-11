@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+@font-face {
+  font-family: 'Segoe UI Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Segoe UI Regular'), url('fonts/Segoe UI.woff') format('woff');
+}
+@font-face {
+  font-family: 'Segoe UI Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Segoe UI Italic'), url('fonts/Segoe UI Italic.woff') format('woff');
+}
+@font-face {
+  font-family: 'Segoe UI Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Segoe UI Bold'), url('fonts/Segoe UI Bold.woff') format('woff');
+}
+@font-face {
+  font-family: 'Segoe UI Bold Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Segoe UI Bold Italic'), url('fonts/Segoe UI Bold Italic.woff') format('woff');
+}
+body {
+  font-family: "Segoe UI Regular", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+}
+h1 {
+  font-family: "Segoe UI Bold", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 26.4px;
+}
+h3 {
+  font-family: "Segoe UI Bold", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 15.4px;
+}
+p {
+  font-family: "Segoe UI Regular", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+blockquote {
+  font-family: "Segoe UI Regular", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 21px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 30px;
+}
+pre {
+  font-family: "Segoe UI Regular", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 18.5714px;
+}
+.panel {
+  margin-bottom: 30px;
+  border-color: rgba(140, 140, 140, 0.15);
+  box-shadow: 0 4px 4px rgba(48, 48, 48, 0.15);
+}
+.panel-default > .panel-heading {
+  color: #707070;
+  background-color: #fff;
+  border-color: rgba(140, 140, 140, 0.15);
+}
+.panel-dark .panel-heading {
+  color: #fff;
+  background-color: rgba(112, 112, 112, 0.8);
+  border-color: rgba(112, 112, 112, 0.8);
+}
+.panel-blue .panel-heading {
+  color: #fff;
+  background-color: #418fde;
+  border-color: #418fde;
+}
+.panel-footer {
+  height: 30px;
+  padding: 5px 15px;
+  color: #418fde;
+  background-color: #eeefed;
+  border-color: rgba(140, 140, 140, 0.15);
+  border-top: none;
+}
+.panel-footer a {
+  color: #418fde;
+  font-size: 14px;
+}
+.panel-footer i {
+  position: relative;
+  left: 10px;
+}
+.wc-scroll::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0);
+  background-color: #fff;
+}
+.wc-scroll::-webkit-scrollbar {
+  width: 3px;
+  background-color: #fff;
+}
+.wc-scroll::-webkit-scrollbar-thumb {
+  background-color: #418fde;
+  border: none;
+}
+.wc-dash-panel {
+  min-height: 400px;
+}
+.panel.wc-panel {
+  border-color: rgba(140, 140, 140, 0.15);
+  box-shadow: 0 4px 4px rgba(48, 48, 48, 0.15);
+}
+.wc-panel.panel-default > .panel-heading {
+  font-size: 20px;
+  color: #707070;
+  background-color: #fff;
+  border-color: rgba(140, 140, 140, 0.15);
+}
+.wc-panel.panel-dark .panel-heading {
+  font-size: 20px;
+  color: #fff;
+  background-color: rgba(112, 112, 112, 0.8);
+  border-color: rgba(112, 112, 112, 0.8);
+}
+.wc-panel.panel-blue .panel-heading {
+  font-size: 20px;
+  color: #fff;
+  background-color: #418fde;
+  border-color: #418fde;
+}
+.wc-panel .panel-footer {
+  height: 30px;
+  padding: 5px 15px;
+  color: #418fde;
+  background-color: #eeefed;
+  border-color: rgba(140, 140, 140, 0.15);
+  border-top: none;
+}
+.wc-panel .panel-footer a {
+  font-size: 14px;
+  color: #418fde;
+}
+.wc-panel .panel-footer i {
+  position: relative;
+  left: 10px;
+}
+.wc-panel .panel-footer .wc-panel-btn {
+  position: relative;
+  top: -1px;
+  padding: 1px 12px;
+  color: #fff;
+  background-color: #418fde;
+  border-radius: 0;
+}
+.card-counter {
+  display: grid;
+  min-height: 155px;
+  padding: 20px 10px;
+  margin: 0 -5px 15px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 4px 4px rgba(48, 48, 48, 0.15);
+  transition: 0.3s ease-in-out all;
+  grid-template-areas: "icon  numbers" "icon  name";
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 2.5fr;
+}
+.card-counter:hover {
+  box-shadow: 4px 4px 20px rgba(48, 48, 48, 0.15);
+  transition: 0.3s ease-in-out all;
+}
+.card-counter.green {
+  color: #fff;
+  background-color: #41de88;
+}
+.card-counter.purple {
+  color: #fff;
+  background-color: #b474bf;
+}
+.card-counter.success {
+  color: #fff;
+  background-color: #66bb6a;
+}
+.card-counter.blue {
+  color: #fff;
+  background-color: #418fde;
+}
+.card-counter i {
+  font-size: 3.75em;
+  opacity: 1;
+  place-self: center;
+}
+.card-counter .count-icon {
+  display: grid;
+  margin: -20px -10px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.15);
+  grid-area: icon;
+}
+.card-counter .count-info {
+  padding-right: 5px;
+  text-align: right;
+}
+.card-counter .count-numbers {
+  display: block;
+  font-size: 2.85em;
+  line-height: 1;
+  grid-area: numbers;
+}
+.card-counter .count-name {
+  display: block;
+  margin-top: 5px;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.1;
+  text-transform: capitalize;
+  opacity: .85;
+  grid-area: name;
+}
+.chartContainer {
+  display: inline-block;
+  width: 96.5%;
+  padding: 20px 10px 5px 5px;
+  margin: 15px;
+  background-color: #263238;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.17), 0 2px 10px 5px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.17), 0 2px 10px 5px rgba(0, 0, 0, 0.18);
+}
+.staff-toolbox {
+  display: grid;
+  align-content: center;
+  height: 90px;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 1.5em;
+  color: #595959;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  box-shadow: 0 4px 4px rgba(48, 48, 48, 0.15);
+  grid-template-areas: "icon  text";
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 2fr;
+}
+.staff-toolbox i {
+  font-size: 2em;
+  opacity: .15;
+  place-self: center;
+}
+.staff-toolbox:hover {
+  text-decoration: none;
+}
+.staff-pic {
+  position: relative;
+  height: 200px;
+  margin: -15px -15px 10px -15px;
+  text-align: center;
+  filter: blur(5px);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: .85;
+}
+.staff-pic::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  height: 100%;
+  content: " ";
+}
+@media (max-width: 768px) {
+  .staff-pic {
+    height: 160px;
+  }
+}
+.staff-img-wrapper {
+  position: relative;
+  top: -150px;
+  z-index: 10;
+  width: 245px;
+  height: 190px;
+  margin-right: auto;
+  margin-bottom: -150px;
+  margin-left: auto;
+  overflow: hidden;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0 4px 4px rgba(48, 48, 48, 0.15);
+}
+.staff-img-wrapper img {
+  width: 100%;
+}
+.staff-info h3 {
+  margin: 30px;
+}
+.wc-task-list .fa-ul {
+  margin-left: 0;
+}
+.wc-task-list a {
+  color: #595959;
+}
+.wc-task-list ul li {
+  padding: 10px 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
+.wc-task-list ul li:nth-child(even) {
+  background: rgba(180, 180, 180, 0.05);
+}
+.wc-task-list ul li:nth-last-of-type {
+  border-bottom: 0 solid rgba(0, 0, 0, 0);
+}
+.wc-task-list ul li .fa-li {
+  position: relative;
+  left: 0;
+}
+.staff-vid video {
+  height: 222px;
+  box-shadow: 0 4px 4px rgba(48, 48, 48, 0.15);
+}
+@media (max-width: 325px) {
+  .staff-vid video {
+    height: 135px;
+  }
+}
+@media (min-width: 325px) and (max-width: 380px) {
+  .staff-vid video {
+    height: 160px;
+  }
+}
+@media (min-width: 380px) and (max-width: 480px) {
+  .staff-vid video {
+    height: 180px;
+  }
+}
+@media (min-width: 480px) and (max-width: 800px) {
+  .staff-vid video {
+    height: 280px;
+  }
+}
+.staff-vid-info {
+  padding: 5px 15px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+.staff-vid-info .staff-vid-title {
+  font-size: 24px;
+  font-weight: 600;
+}
+.staff-vid-info .staff-vid-date {
+  font-size: 14px;
+  font-weight: 600;
+}
+.staff-vid-notes {
+  font-size: 16px;
+  color: #707070;
+}
+.wc-item-container {
+  display: grid;
+  padding: 0;
+  margin-bottom: 15px;
+  grid-template-areas: "date  title title title" "date  snippet snippet button";
+  grid-template-rows: auto;
+  grid-template-columns: auto;
+  grid-column-gap: 10px;
+}
+.wc-item-container.wc-intra-page {
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "date title button" "date snippet snippet";
+}
+.wc-item-container.wc-intra-page .wc-item-btn {
+  align-self: center;
+  text-align: right;
+}
+.wc-item-container.wc-intra-page .wc-item-date {
+  width: 100px;
+  height: 180px;
+}
+.wc-item-container.wc-intra-page .wc-item-date::before {
+  width: 100px;
+  height: 180px;
+}
+.wc-item-container.wc-intra-page .wc-item-date .wc-item-date-text {
+  display: grid;
+  align-items: flex-end;
+  justify-content: flex-start;
+  text-shadow: none;
+  border-bottom: none;
+}
+.wc-item-container.wc-intra-page .wc-item-date .wc-item-date-text-wrapper {
+  border-bottom: 5px solid #fff;
+}
+.wc-item-container.wc-intra-page .wc-item-date .wc-item-date-num {
+  font-size: 60px;
+  line-height: 1;
+  text-align: left;
+}
+.wc-item-container.wc-intra-page .wc-item-date .wc-item-date-month {
+  font-size: 24px;
+  text-align: left;
+}
+@media (max-width: 480px) {
+  .wc-item-container.wc-intra-page {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "date title title" "date button button" "snippet snippet snippet";
+  }
+  .wc-item-container.wc-intra-page .wc-item-date {
+    width: 100px;
+    height: 100px;
+  }
+  .wc-item-container.wc-intra-page .wc-item-date::before {
+    width: 100px;
+    height: 100px;
+  }
+  .wc-item-container.wc-intra-page .wc-item-date .wc-item-date-num {
+    font-size: 32px;
+  }
+  .wc-item-container.wc-intra-page .wc-item-title {
+    white-space: normal;
+    line-height: 1.2;
+    font-size: 18px;
+  }
+  .wc-item-container.wc-intra-page .wc-item-btn {
+    align-self: flex-end;
+  }
+}
+@media (min-width: 480px) and (max-width: 768px) {
+  .wc-item-container.wc-intra-page {
+    grid-template-columns: .25fr 1fr 1fr;
+  }
+  .wc-item-container.wc-intra-page .wc-item-date {
+    width: 140px;
+    height: 140px;
+  }
+  .wc-item-container.wc-intra-page .wc-item-date::before {
+    width: 140px;
+    height: 140px;
+  }
+  .wc-item-container.wc-intra-page .wc-item-snippet {
+    max-height: 100px !important;
+    line-height: 1 !important;
+  }
+}
+@media (min-width: 800px) and (max-width: 1024px) {
+  .wc-item-container.wc-intra-page .wc-item-date {
+    width: 335px;
+    height: 190px;
+  }
+  .wc-item-container.wc-intra-page .wc-item-date::before {
+    width: 335px;
+    height: 190px;
+  }
+  .wc-item-container.wc-intra-page .wc-item-snippet {
+    max-height: 140px !important;
+    line-height: 1 !important;
+  }
+}
+@media (min-width: 1120px) {
+  .wc-item-container.wc-intra-page .wc-item-date {
+    width: 444px;
+    height: 250px;
+  }
+  .wc-item-container.wc-intra-page .wc-item-date::before {
+    width: 444px;
+    height: 250px;
+  }
+  .wc-item-container.wc-intra-page .wc-item-snippet {
+    max-height: 180px !important;
+  }
+}
+.wc-item-container.wc-intra-page .wc-item-snippet {
+  max-height: 120px;
+  line-height: 1.5;
+  text-overflow: unset;
+  -webkit-line-clamp: unset;
+}
+.wc-item-container.wc-intra-page .wc-item-snippet p {
+  position: relative;
+}
+.wc-item-container .wc-item-date {
+  display: grid;
+  width: 110px;
+  height: 110px;
+  padding: 15px;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  grid-area: date;
+}
+.wc-item-container .wc-item-date::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  width: 110px;
+  height: 110px;
+  content: "";
+  background-color: black;
+  opacity: .15;
+  grid-area: date;
+}
+.wc-item-container .wc-item-date.wc-item-date-wide {
+  width: 245px;
+  height: 120px;
+}
+@media (max-width: 480px) {
+  .wc-item-container .wc-item-date {
+    width: 100px;
+    height: 100px;
+  }
+  .wc-item-container .wc-item-date.wc-item-date-wide {
+    width: 100px;
+    height: 100px;
+  }
+}
+.wc-item-container .wc-item-date .wc-item-date-text {
+  z-index: 1;
+  color: #fff;
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.24);
+  border-bottom: 3px solid #fff;
+}
+.wc-item-container .wc-item-date .wc-item-date-text-alt {
+  z-index: 1;
+  color: #707070;
+  border-bottom: 3px solid #707070;
+}
+.wc-item-date-alt::before{
+  background-color: transparent !important;
+}
+.wc-item-container .wc-item-date .wc-item-date-num {
+  font-size: 50px;
+  line-height: 1;
+}
+.wc-item-container .wc-item-date .wc-item-date-month {
+  font-size: 14px;
+}
+.wc-item-container .wc-item-date img {
+  width: 100%;
+  place-self: center;
+}
+.wc-item-container .wc-item-title {
+  align-self: center;
+  overflow: hidden;
+  font-size: 20px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  grid-area: title;
+}
+.wc-item-container .wc-item-snippet {
+  display: -webkit-box;
+  align-self: flex-start;
+  /* fallback */
+  max-height: 32px;
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 16px;
+  color: #9a9797;
+  text-overflow: ellipsis;
+  grid-area: snippet;
+  /* fallback */
+  -webkit-line-clamp: 2;
+  /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+.wc-item-container .wc-item-snippet-alt {
+  display: -webkit-box;
+  align-self: center;
+  /* fallback */
+  max-height: 48px;
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 16px;
+  color: #9a9797;
+  text-overflow: ellipsis;
+  grid-area: snippet;
+  /* fallback */
+  -webkit-line-clamp: 3;
+  /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+.wc-item-container .wc-item-btn {
+  align-self: end;
+  text-align: right;
+  grid-area: button;
+}
+.wc-item-container .wc-item-btn a {
+  padding: 3px 30px;
+  font-size: 12px;
+  color: #418fde;
+  border: 1px solid #418fde;
+}
+/*
+  Rock Theme Styles
+
+  1. HTML Overrides
+  2. Bootstrap Overrides
+  3. Theme Styling
+  4. Responsive Overrides
+
+*/
+main {
+  display: block;
+}
+.campus-data-selector-wrapper {
+  margin-bottom: 10px;
+}
+.wc-data-filter-wrapper {
+  padding: 0;
+  margin-bottom: 10px;
+}
+.wc-data-filter-wrapper select {
+  font-size: 14px;
+}
+@media (min-width: 992px) {
+  .container {
+    width: 100%;
+  }
+}
+
+
+</style>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+<script language="javascript">
+  const cmUser = "user-name";
+  const cmKey = "api-key";
+
+  function cmTotals(c) {
+    let campusId = c;
+    let catIdAtt = "255432";
+    let catIdBap = "246429";
+    let catIdGiv = "152926";
+
+    let attendance = {
+      "async": true,
+      "crossDomain": true,
+      "url": "https://churchmetrics.com/api/v1/campuses/" + campusId + "/weekly_totals.json?category_id=" + catIdAtt,
+      "method": "GET",
+      "headers": {
+        "X-Auth-User": cmUser,
+        "X-Auth-Key": cmKey,
+        "cache-control": "no-cache"
+
+      }
+    }
+
+    $.ajax(attendance).done(function (response) {
+      $('#attd-count').html(function () {
+        return response.total;
+      });
+      $('.count-perc').html(function () {
+        return response.percent_change;
+      });
+    });
+
+
+
+    let giving = {
+      "async": true,
+      "crossDomain": true,
+      "url": "https://churchmetrics.com/api/v1/campuses/" + campusId + "/weekly_totals.json?category_id=" + catIdGiv,
+      "method": "GET",
+      "headers": {
+        "X-Auth-User": cmUser,
+        "X-Auth-Key": cmKey,
+        "cache-control": "no-cache"
+
+      }
+    }
+
+    $.ajax(giving).done(function (response) {
+      $('#giv-count').html(function () {
+        return response.total;
+
+      });
+    });
+  }
+  async function cmRecordsCont(cat, campus) {
+    let campusId = campus;
+    let catId = "152926"; 
+    let catIdBap = "246429";
+    var year = new Date().getFullYear() + "-01-01";
+
+    function epochWeek(d1, d2) {
+      var t2 = d2.getTime();
+      var t1 = d1.getTime();
+
+      return parseInt((t2 - t1) / (24 * 3600 * 1000 * 7));
+    }
+    var epochDate = new Date(1970, 0, 1);
+    var thisYear = new Date(new Date().getFullYear(), 0, 1);
+    var startWeek = epochWeek(epochDate, thisYear) + 1;
+
+    let settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": "https://churchmetrics.com/api/v1/records.json?start_week=" + startWeek + "&page=" + pno +
+        "&per_page=100&category_id=" + catId + "&campus_id=" + campusId,
+      "method": "GET",
+      "headers": {
+        "X-Auth-User": cmUser,
+        "X-Auth-Key": cmKey,
+        "cache-control": "no-cache"
+
+      }
+    }
+    var responses = [];
+    for (var pno = 1; pno <= 4; pno++) {
+
+      await $.ajax({
+        "async": true,
+        "crossDomain": true,
+        "url": "https://churchmetrics.com/api/v1/records.json?start_week=" + startWeek + "&page=" + pno +
+          "&per_page=100&category_id=" + catId + "&campus_id=" + campusId,
+        "method": "GET",
+        "headers": {
+          "X-Auth-User": cmUser,
+          "X-Auth-Key": cmKey,
+          "cache-control": "no-cache"
+
+        }
+      }).done(function (response) {
+        if (response.length > 0) {
+          for (var i = 0; i < response.length; i++) {
+
+            if (!responses.find(item => response[i].id == item.id)) {
+              responses.push(response[i]);
+            }
+
+          }
+        }
+      });
+    }
+
+    let responsevals = [];
+    responses.forEach(res => responsevals.push(res.value));
+    aggDataCont(responsevals);
+  }
+
+  function aggDataCont(aggDataVal) {
+    // 
+
+    function getSumCont(a, b) {
+      return a + b;
+    }
+    if (aggDataVal != '') {
+      var cTotal = aggDataVal.reduce(getSumCont).toFixed(2);
+    } else {
+      var cTotal = 0;
+    }
+    var formatter = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+    });
+    var amount = formatter.format(cTotal);
+    $('#giv-count-tot').html(amount);
+  }
+
+  function cmRecords(cat, campus) {
+    let campusId = campus;
+    let catId = "255432";
+    let catIdBap = "246429";
+    var year = new Date().getFullYear() + "-01-01";
+    let settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": "https://churchmetrics.com/api/v1/records.json?start_time='" + year + "'&category_id=" + catIdBap +
+        "&campus_id=" + campusId,
+      "method": "GET",
+      "headers": {
+        "X-Auth-User": cmUser,
+        "X-Auth-Key": cmKey,
+        "cache-control": "no-cache"
+
+      }
+    }
+
+    $.ajax(settings).done(function (response) {
+
+      aggData(response);
+    });
+  }
+
+  function aggData(res) {
+    let aggData = [];
+    Object.keys(res).forEach(e => {
+      aggData.push(res[e].value)
+    })
+
+    function getSum(a, b) {
+      return a + b;
+    }
+    if (aggData != '') {
+      var bapTotal = aggData.reduce(getSum);
+    } else {
+      var bapTotal = 0;
+    }
+
+    $('#bap-count').html(bapTotal);
+  }
+
+
+  function convertVal(val) {
+    let multiplier = val.substr(-1).toLowerCase();
+    if (multiplier == "k") {
+      return parseFloat(val) * 1000;
+    } else if (multiplier == "m") {
+      return parseFloat(val) * 1000000;
+    } else {
+      return val;
+    }
+  }
+
+  $(async function () {
+    let campus = $("#campus-data").val();
+    cmTotals(campus);
+    cmRecords(0, campus);
+    cmRecordsCont(0, campus);
+    var finalresult1 = await attRecords(campus, "152926");
+    var finalresult2 = await attRecords(campus, "499415");
+    var finalresult = await finalresult1.concat(finalresult2);
+    //
+    await drawCharts(finalresult);
+  });
+
+  $(function () {
+    $('#campus-data').on('change', async function () {
+      // 
+      var optionValue = $(this).val();
+      cmRecords(0, optionValue);
+      cmRecordsCont(0, optionValue);
+      cmTotals(optionValue);
+      var finalresult1 = await attRecords(optionValue, "152926");
+      var finalresult2 = await attRecords(optionValue, "499415");
+      var finalresult = await finalresult1.concat(finalresult2);
+      // 
+      await drawCharts(finalresult);
+    });
+  });
+
+
+  // chartJS charts
+  //create the line chart
+
+  async function attRecords(campus, catIds) {
+
+    let campusId = campus;
+    let catId = catIds;
+    let catIdBap = "246429";
+    var year = new Date().getFullYear() + "-01-01";
+
+    function epochWeek(d1, d2) {
+      var t2 = d2.getTime();
+      var t1 = d1.getTime();
+
+      return parseInt((t2 - t1) / (24 * 3600 * 1000 * 7));
+    }
+
+    var epochDate = new Date(1970, 0, 1);
+    var thisYear = new Date(new Date().getFullYear(), 0, 1);
+    var startWeek = epochWeek(epochDate, thisYear) + 1;
+    let settings = {
+      async: true,
+      crossDomain: true,
+      url: "https://churchmetrics.com/api/v1/records.json?start_week=" +
+        startWeek +
+        "&page=1&per_page=100&category_id=" +
+        catId +
+        "&campus_id=" +
+        campusId,
+      method: "GET",
+      headers: {
+        "X-Auth-User": cmUser,
+        "X-Auth-Key": cmKey,
+        "cache-control": "no-cache"
+      }
+    };
+    // 
+    var resSum = [];
+    for (var pno = 1; pno <= 4; pno++) {
+      await $.ajax({
+        async: true,
+        crossDomain: true,
+        url: "https://churchmetrics.com/api/v1/records.json?start_week=" +
+          startWeek +
+          "&page=" + pno + "&per_page=100&category_id=" +
+          catId +
+          "&campus_id=" +
+          campusId,
+        method: "GET",
+        headers: {
+          "X-Auth-User": cmUser,
+          "X-Auth-Key": cmKey,
+          "cache-control": "no-cache"
+        }
+      }).done(function (response) {
+          // 
+          var value;
+          var finalvalue;
+          var values = [];
+          var result = response;
+          // 
+
+          result.reduce(function (res, item) {
+
+            // 
+            if (!res[item.week_reference]) {
+
+              res[item.week_reference] = {
+                value: 0,
+                week_reference: item.week_reference,
+                id: item.category.id
+              };
+              resSum.push(res[item.week_reference]);
+
+            }
+
+            res[item.week_reference].value += item.value
+
+            return res;
+
+          }, {});
+
+        },
+
+      );
+    }
+    // 
+
+    var result = resSum.reduce((p, c) => {
+      var o = p.find(e => e.week_reference == c.week_reference);
+      !!o ? o.value = (o.value * 1 + c.value * 1) : p.push(c);
+      return p;
+    }, []).sort((a, b) => a.week_reference - b.week_reference);
+
+    return result;
+
+  }
+
+  //create the line chart
+  function drawLineChart(
+    div_id,
+    results,
+    yColumn,
+    yLabel,
+    xAxes,
+    firstColour,
+    secondColour,
+    thirdColour,
+    fourthColour,
+    fifthColour,
+    sixthColour,
+    seventhColour,
+    eighthColour,
+    yLabel2
+  ) {
+    let ctx = document.getElementById(div_id).getContext("2d");
+    let width = 450;
+    let gradientStroke = ctx.createLinearGradient(0, 0, width, 0);
+    gradientStroke.addColorStop(0, firstColour);
+    gradientStroke.addColorStop(0.3, secondColour);
+    gradientStroke.addColorStop(0.6, thirdColour);
+    gradientStroke.addColorStop(1, fourthColour);
+    let gradientStroke2 = ctx.createLinearGradient(0, 0, width, 0);
+    gradientStroke2.addColorStop(0, fifthColour);
+    gradientStroke2.addColorStop(0.3, sixthColour);
+    gradientStroke2.addColorStop(0.6, seventhColour);
+    gradientStroke2.addColorStop(1, eighthColour);
+
+    let labels = results.map(function (item) {
+
+      return moment('1970').add(item.week_reference, 'weeks').format('WW/YYYY');
+    });
+
+    labels = labels.reduce((unique, item) => unique.includes(item) ? unique : [...unique, item], []
+
+    );
+    let data1 = results.map(function (item) {
+      if (item.id == 152926) {
+        return item.value;
+      }
+    });
+    data1 = data1.filter(function (element) {
+      return element !== undefined;
+    });
+    let data2 = results.map(function (item) {
+      if (item.id == 499415) {
+        return item.value;
+      }
+    });
+    data2 = data2.filter(function (element) {
+      return element !== undefined;
+    });
+
+
+    let attChart = new Chart(ctx, {
+      type: "line",
+      data: {
+        labels: labels,
+        datasets: [{
+          label: yLabel,
+          borderColor: gradientStroke,
+          pointBorderColor: gradientStroke,
+          pointBackgroundColor: gradientStroke,
+          pointHoverBackgroundColor: gradientStroke,
+          pointHoverBorderColor: gradientStroke,
+          pointBorderWidth: 8,
+          pointHoverRadius: 8,
+          pointHoverBorderWidth: 1,
+          pointRadius: 1,
+          fill: false,
+          borderWidth: 3,
+          data: data1
+        }, {
+          label: yLabel2,
+          borderColor: gradientStroke2,
+          pointBorderColor: gradientStroke2,
+          pointBackgroundColor: gradientStroke2,
+          pointHoverBackgroundColor: gradientStroke2,
+          pointHoverBorderColor: gradientStroke2,
+          pointBorderWidth: 8,
+          pointHoverRadius: 8,
+          pointHoverBorderWidth: 1,
+          pointRadius: 1,
+          fill: false,
+          borderWidth: 3,
+          data: data2
+        }, ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          yAxes: [{
+            ticks: {
+              fontFamily: "Roboto Mono",
+              fontColor: "#556F7B",
+              fontStyle: "bold",
+              beginAtZero: true,
+              maxTicksLimit: 5,
+              padding: 20
+            },
+            gridLines: {
+              drawTicks: false,
+              display: false,
+              drawBorder: false
+            }
+          }],
+          xAxes: [{
+            gridLines: {
+              zeroLineColor: "transparent"
+            },
+            ticks: {
+              padding: 20,
+              fontColor: "#556F7B",
+              fontStyle: "bold",
+              fontFamily: "Roboto Mono"
+            },
+            gridLines: {
+              drawTicks: false,
+              display: false,
+              drawBorder: false
+            }
+          }]
+        }
+      }
+    });
+  }
+
+  function drawCharts(results) {
+
+    drawLineChart(
+      "lineChartBlueGreenAlt",
+      results,
+      "visits",
+      "Weekly Contributions",
+      "date",
+      "#7C4DFF",
+      "#448AFF",
+      "#00BCD4",
+      "#1DE9B6",
+      "#F44336",
+      "#F50057",
+      "#FF4081",
+      "#FF9100",
+      "Budgeted Contributions"
+    );
+
+  }
+</script>
+
+
+
+</head>
+<body>
+
+<div class="col-xs-12 col-lg-8">
+
+        <div class="panel panel-blue wc-panel">
+
+            <div class="panel-heading">
+            <i class="fas fa-bullhorn"></i> Let's Celebrate
+            </div>
+            <div class="panel-body wc-dash-panel">
+                <div class="row">
+
+                    <div class="col-xs-12 text-right campus-data-selector-wrapper">
+                        <select name="campus-data" id="campus-data">
+                            <option class="campus" data-campus="33835" value="33835">Casa</option>
+                            <option class="campus" data-campus="33838" value="33838">Gilbert</option>
+                            <option class="campus" data-campus="33839" value="33839">Diamond Lake</option>
+                            <option class="campus" data-campus="33840" value="33840">Higsby</option>
+                            <option class="campus" data-campus="33837" value="33837">North Side</option>
+                            <option class="campus" data-campus="33834" selected="selected" value="33834">South Side</option>
+                            <option class="campus" data-campus="54295" value="54295">Lake Shore</option>
+                            <option class="campus" data-campus="33836" value="33836">Wilson</option></select>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card-counter green">
+                            <div class="count-icon"><i class="fas fa-user-friends"></i></div>
+                            <div class="count-info">
+                                <span id="attd-count" class="count-numbers">&nbsp;</span>
+                                <span class="count-name">Attendance This Week</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card-counter purple">
+                            <div class="count-icon"><i class="fas fa-cross"></i></div>
+                            <div class="count-info">
+                                <span class="count-numbers">$<span id="giv-count">&nbsp;</span></span>
+                                <span class="count-change" style="font-size: 0.9em;"><span id="giv-count-tot">&nbsp;</span> Total YTD</span>
+                                <span class="count-name">Contributions This Week</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card-counter blue">
+                            <div class="count-icon"><i class="fas fa-tint"></i></div>
+                            <div class="count-info">
+                                <span id="bap-count" class="count-numbers">&nbsp;</span>
+                                <span class="count-name">Baptisms This Year</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="chartContainer">
+                        <canvas id="lineChartBlueGreenAlt" width="100%" height="350px"></canvas>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+
+
+
+</body>
+</html>
